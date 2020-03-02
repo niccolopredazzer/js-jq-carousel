@@ -37,6 +37,7 @@
     height: 100%;
     object-fit: cover;
     display: none;
+    cursor: pointer;
 }
 
 .images img.active {
@@ -67,6 +68,7 @@
     color: black;
     font-size: 30px;
     background-color: white;
+    cursor: pointer;
 }
 
 #bottone .pausa {

@@ -6,15 +6,25 @@ $(document).ready(function() {
 
     //timing functions
 
-    var slideAutomatico = setInterval(nextSlide, 5000);   //setto l'intervallo
+    var slideAutomatico = setInterval(nextSlide, 5000);   //setto l'intervallo: ogni 5 secondi si passa all'immagine successiva
 
     //blocco lo slide automatico in vari modi
     $("#bottone").click(function () {           //metodo 1: il bottone
         clearInterval(slideAutomatico);
     })
 
-    
 
+    setTimeout(function() {                    //metodo 2: si interrompe automaticamente dopo 40 secondi
+        clearInterval(slideAutomatico);
+    }, 40000);
+
+
+    $('.images').mouseenter(function(){        //metodo 3: se tengo il mouse fermo sull'immagine lo scorrimento si interrompe se esco dall'immagine riparte
+        clearInterval(slideAutomatico);
+    });
+    $('.images').mouseleave(function(){
+        slideAutomatico = setInterval(nextSlide, 5000);
+    })
 
     // Definisco le funzioni nextImage e prevImage
     function nextSlide() {
