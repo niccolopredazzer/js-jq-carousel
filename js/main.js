@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     // Invoco le funzioni per cambiare slide
     $('.next').click(nextSlide);        // Al click richiamo la funzione per aggiornare l'immagine visualizzando la successiva
-
+    $('.prev').click(prevSlide);
 
     // Definisco le funzioni nextImage e prevImage
     function nextSlide() {
@@ -28,6 +28,33 @@ $(document).ready(function() {
 
             pallinoAttivo.removeClass('active');
             prossimaPallino.addClass('active');
+        }
+    }
+
+    //Defisco la funzione per il prev e lo chiamo prevSlide
+    function prevSlide() {
+        if ( $('.images img.active').hasClass('first') ) {
+
+            $('.images img.active').removeClass('active');
+            $('.images img.last').addClass('active');
+
+            // Pallini
+            $('.slider-nav i.active').removeClass('active');
+            $('.slider-nav i.last').addClass('active');
+
+        } else {
+            var imgAttiva = $('.images img.active'); // Rimuovo l'active
+            var imgPrecedente = $('.images img.active').prev();
+
+            imgAttiva.removeClass('active');
+            imgPrecedente.addClass('active');
+
+            // Pallini
+            var pallinoAttivo = $('.slider-nav i.active'); // Rimuovo l'active
+            var pallinoPrecedente = $('.slider-nav i.active').prev();
+
+            pallinoAttivo.removeClass('active');
+            pallinoPrecedente.addClass('active');
         }
     }
 
