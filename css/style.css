@@ -60,3 +60,15 @@
 .slider-nav i.active {
     color: white;
 }
+
+/* bottone */
+
+.container .stop #bottone {
+    color: black;
+    font-size: 30px;
+    background-color: white;
+}
+
+#bottone .pausa {
+    display: none;
+}

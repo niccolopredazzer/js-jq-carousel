@@ -7,6 +7,12 @@ $(document).ready(function() {
     //timing functions
 
     var slideAutomatico = setInterval(nextSlide, 5000);   //setto l'intervallo
+
+    //blocco lo slide automatico in vari modi
+    $("#bottone").click(function () {           //metodo 1: il bottone
+        clearInterval(slideAutomatico);
+    })
+
     
 
 
