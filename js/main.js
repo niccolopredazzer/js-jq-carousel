@@ -3,7 +3,7 @@ $(document).ready(function() {
     // Invoco le funzioni per cambiare slide
     $('.next').click(nextSlide);        // Al click richiamo la funzione per aggiornare l'immagine visualizzando la successiva
     $('.prev').click(prevSlide);
-
+    
     //timing functions
 
     var slideAutomatico = setInterval(nextSlide, 5000);   //setto l'intervallo: ogni 5 secondi si passa all'immagine successiva
@@ -11,7 +11,7 @@ $(document).ready(function() {
     //blocco lo slide automatico in vari modi
     $("#bottone").click(function () {           //metodo 1: il bottone
         clearInterval(slideAutomatico);
-    })
+    });
 
 
     setTimeout(function() {                    //metodo 2: si interrompe automaticamente dopo 40 secondi
