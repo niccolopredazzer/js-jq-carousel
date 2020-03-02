@@ -4,6 +4,12 @@ $(document).ready(function() {
     $('.next').click(nextSlide);        // Al click richiamo la funzione per aggiornare l'immagine visualizzando la successiva
     $('.prev').click(prevSlide);
 
+    //timing functions
+
+    var slideAutomatico = setInterval(nextSlide, 5000);   //setto l'intervallo
+    
+
+
     // Definisco le funzioni nextImage e prevImage
     function nextSlide() {
         if ( $('.images img.active').hasClass('last') ) {
@@ -57,6 +63,7 @@ $(document).ready(function() {
             pallinoPrecedente.addClass('active');
         }
     }
+
 
 
 
