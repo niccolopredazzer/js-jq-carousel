@@ -3,10 +3,10 @@ $(document).ready(function() {
     // Invoco le funzioni per cambiare slide
     $('.next').click(nextSlide);        // Al click richiamo la funzione per aggiornare l'immagine visualizzando la successiva
     $('.prev').click(prevSlide);
-    
+
     //timing functions
 
-    var slideAutomatico = setInterval(nextSlide, 5000);   //setto l'intervallo: ogni 5 secondi si passa all'immagine successiva
+    var slideAutomatico = setInterval(nextSlide, 4000);   //setto l'intervallo: ogni 5 secondi si passa all'immagine successiva
 
     //blocco lo slide automatico in vari modi
     $("#bottone").click(function () {           //metodo 1: il bottone
@@ -23,10 +23,38 @@ $(document).ready(function() {
         clearInterval(slideAutomatico);
     });
     $('.images').mouseleave(function(){
-        slideAutomatico = setInterval(nextSlide, 5000);
+        slideAutomatico = setInterval(nextSlide, 4000);
     })
 
-    // Definisco le funzioni nextImage e prevImage
+
+    //Parte bonus i Pallini
+    $('.slider-nav i').click(function(){
+        $('.slider-nav .i').removeClass('active');
+        $(this).addClass('active');
+    var posizione = $(this).index();
+        $('.images img.active').removeClass('active');
+        $('.images img').eq(posizione).addClass('active');
+    });
+
+    //Super bonus usare un tasto della tastiera per scorrere
+    $(document).keydown(function(event){
+        switch (event.which) {
+            case 37:
+                prevSlide();
+                break;
+            case 39:
+                nextSlide();
+            default:
+                console.log('tasto sbagliato');
+                break;
+        }
+    });
+
+
+
+
+
+    // Definisco le funzioni nextImage
     function nextSlide() {
         if ( $('.images img.active').hasClass('last') ) {
 
